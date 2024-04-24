@@ -1,0 +1,83 @@
+{
+    "train": [
+        {
+            "command": "OMP_NUM_THREADS=8 dp",
+            "machine": {
+                "hostname": "login.m100.cineca.it",
+                "port": 22,
+                "batch": "slurm",
+                "username": ,
+                "password": ,
+                "work_path": 
+            },
+            "resources": {
+                "numb_node": 1,
+		        "numb_gpu": 1,
+    		    "task_per_node": 1,
+    		    "custom_flags": ["--cpus-per-task=8"],
+	    	    "account": ,
+    		    "partition": ,
+        		"exclude_list": [],
+	        	"source_list": [""],
+        		"module_list": [],
+	        	"time_limit": "24:00:00"
+	        },
+	        "deepmd_path": ""
+	    }
+	],
+	"model_devi": [
+        {
+            "machine": {
+                "batch": "slurm",
+                "hostname": "login.m100.cineca.it",
+                "port": 22,
+                "username": ,
+                "password": ,
+                "work_path": 
+            },
+            "resources": {
+                "numb_node": 1,
+    		    "numb_gpu": 4,
+    		    "task_per_node": 4,
+    		    "custom_flags": ["--cpus-per-task=8"],
+    		    "account": ,
+    		    "partition": "m100_usr_prod",
+                "allow_failure": "true",
+    		    "exclude_list": [],
+    		    "source_list": [""],
+                "module_list": [],
+                "time_limit": "4:00:00"
+            },
+            "command": "OMP_NUM_THREADS=8 mpirun -np 4 lmp_mpi",
+            "group_size": 25
+        }
+    ],
+    "fp": [
+        {
+	        "machine": {
+                "hostname": "login.m100.cineca.it",
+                "port": 22,
+        		"batch": "slurm",
+		        "username": ,
+        		"password": ,
+		        "work_path": 
+            },
+            "resources": {
+                "numb_node": 2,
+                "task_per_node": 4,
+                "cpus_per_task": 32,
+                "numb_gpu": 4,
+                "exclude_list": [],
+                "with_mpi": false,
+                "module_list": [
+               ],
+            "time_limit": "01:30:00",
+    	    "account": ,
+            "partition": "m100_usr_prod",
+            "_comment": "that's All"
+            },
+             "command": "mpirun -gpu --map-by socket:PE=8 --rank-by core pw.x -in input",
+            "group_size": 25
+        }
+    ]
+}

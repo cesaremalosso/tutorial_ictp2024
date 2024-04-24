@@ -1,0 +1,247 @@
+{
+    "_comment": " Basics",
+    "type_map": [
+        "O",
+        "Na",
+        "Cl",
+	"H"
+        ],
+    "mass_map": [
+        15.9994,
+        22.9898,
+        35.453,
+        1.00794
+        ],
+
+    "_comment": " Data",
+    "init_data_prefix": "/data/cmalosso/salamoia/nn_gen",
+    "init_data_sys": [
+        "data.init/lammps_raw/shuffled"
+        ],
+    "init_batch_size":[2],
+	"sys_configs_prefix": "/data/cmalosso/salamoia/nn_gen",
+    "sys_configs": [
+        ["data.init/init.config/FOLDER_POSCAR/POSCAR.*"]
+        ],
+    "sys_batch_size": [2],
+
+    "_comment": " Training ",
+    "numb_models": 4,
+    "train_param": "input.json",
+    "default_training_param": {
+        "model": {
+            "type_map": [
+                "O",
+                "Na",
+                "Cl",
+	        "H"
+            ],
+            "descriptor": {
+                "type": "se_a",
+                "sel": [
+                    50,
+                    4,
+                    4,
+                    100
+                ],
+                "rcut_smth": 2.5,
+                "rcut": 6.0,
+                "neuron": [
+                    25,
+                    50,
+                    100
+                ],
+                "axis_neuron": 16
+            },
+            "fitting_net": {
+                "neuron": [
+                    250,
+                    250,
+                    250
+                ],
+                "resnet_dt": true
+            }
+        },
+        "learning_rate": {
+            "type": "exp",
+            "start_lr": 0.001,
+            "decay_steps": 1000,
+            "stop_lr": 3.5e-8
+        },
+        "loss": {
+            "start_pref_e": 0.02,
+            "limit_pref_e": 1,
+            "start_pref_f": 1000,
+            "limit_pref_f": 1,
+            "start_pref_v": 0,
+            "limit_pref_v": 0,
+            "start_pref_pf": 0,
+            "limit_pref_pf": 0
+        },
+        "training": {
+            "stop_batch": 1000000,
+            "disp_file": "lcurve.out",
+            "disp_freq": 100,
+            "numb_test": 4,
+            "save_freq": 1000,
+            "save_ckpt": "model.ckpt",
+            "disp_training": true,
+            "time_training": true,
+            "profiling": false,
+            "profiling_file": "timeline.json"
+        },
+        "_comment": " that's all"
+    },
+    
+    "model_devi_dt": 0.0002,
+    "model_devi_skip": 10,
+    "model_devi_f_trust_lo": 0.1,
+    "model_devi_f_trust_hi": 0.3,
+    "model_devi_e_trust_lo": 1e10,
+    "model_devi_e_trust_hi": 1e10,
+    "model_devi_clean_traj": true,
+    "model_devi_jobs": [
+        {
+        "sys_idx": [0],
+        "temps": [300,400],
+        "press": [1,1000,5000,10000],
+        "trj_freq": 20,
+        "nsteps": 2500,
+        "ensemble": "npt",
+        "taut": 0.05,
+        "taup": 0.5,
+        "_idx": "00"
+        },
+        {
+        "sys_idx": [0],
+        "temps": [300, 400, 500],
+        "press": [1,1000,5000,10000],
+        "trj_freq": 20,
+        "nsteps": 5000,
+        "ensemble": "npt",
+        "taut": 0.05,
+        "taup": 0.5,
+        "_idx": "01"
+        },
+        {
+        "sys_idx": [0],
+        "temps": [300, 400, 500, 600],
+        "press": [1,1000,5000,10000],
+        "trj_freq": 20,
+        "nsteps": 7500,
+        "ensemble": "npt",
+        "taut": 0.05,
+        "taup": 0.5,
+        "_idx": "02"
+        },
+        {
+        "sys_idx": [0],
+        "temps": [300, 400, 500, 600, 700],
+        "press": [1,1000,5000,10000],
+        "trj_freq": 50,
+        "nsteps": 15000,
+        "ensemble": "npt",
+        "taut": 0.05,
+        "taup": 0.5,
+        "_idx": "03"
+        },
+        {
+        "sys_idx": [0],
+        "temps": [300, 400, 500, 600, 700],
+        "press": [1,1000,5000,10000],
+        "trj_freq": 100,
+        "nsteps": 30000,
+        "ensemble": "npt",
+        "taut": 0.05,
+        "taup": 0.5,
+        "_idx": "04"
+        },
+        {
+        "sys_idx": [0],
+        "temps": [500, 700, 900, 1100],
+        "press": [10000, 50000],
+        "trj_freq": 50,
+        "nsteps": 5000,
+        "ensemble": "npt",
+        "taut": 0.05,
+        "taup": 0.5,
+        "_idx": "05"
+        },
+        {
+        "sys_idx": [0],
+        "temps": [500, 700, 900, 1100],
+        "press": [10000, 50000],
+        "trj_freq": 50,
+        "nsteps": 10000,
+        "ensemble": "npt",
+        "taut": 0.05,
+        "taup": 0.5,
+        "_idx": "06"
+        },
+        {
+        "sys_idx": [0],
+        "temps": [400, 600, 800, 1000],
+        "trj_freq": 300,
+        "nsteps": 30000,
+        "ensemble": "nvt",
+        "taut": 0.05,
+        "taup": 0.5,
+        "_idx": "07"
+        },
+        {
+        "sys_idx": [0],
+        "temps": [400, 600, 800, 1000],
+        "trj_freq": 500,
+        "nsteps": 50000,
+        "ensemble": "nvt",
+        "taut": 0.05,
+        "taup": 0.5,
+        "_idx": "08"
+        },
+        {
+        "sys_idx": [0],
+        "temps": [400, 600, 800, 1000],
+        "trj_freq": 100,
+        "nsteps": 100000,
+        "ensemble": "nvt",
+        "taut": 0.05,
+        "taup": 0.5,
+        "_idx": "09"
+        }
+
+
+    ], 
+    "fp_style": "pwscf",
+    "shuffle_poscar": false,
+    "fp_task_max": 500,
+    "fp_task_min": 10,
+    "fp_accurate_threshold": 0.9999,
+    "fp_pp_path": "/data/cmalosso/salamoia/nn_gen/pseudo",
+    "fp_pp_files": [
+	    "O_ONCV_PBE-1.2.upf",
+	    "Na_ONCV_PBE-1.2.upf",
+	    "Cl_ONCV_PBE-1.2.upf",  
+	    "H_ONCV_PBE-1.2.upf"
+        ],
+    "user_fp_params": {
+        "_comment": "pseudo_dir will be added automatically",
+        "control": {
+            "calculation": "scf",
+            "restart_mode": "from_scratch",
+            "outdir": "./tmp",
+            "tprnfor": true,
+            "tstress": true,
+            "disk_io": "none"
+            },
+        "_comment": "ibrav, nat and ntyp will be added automatically",
+        "system": {
+            "ecutwfc": 80.0,
+            "nosym": true
+            },
+        "electrons": {
+            "electron_maxstep": 100
+            },
+        "kspacing": 1.0
+  },
+  "_comment":         " that's all "
+}

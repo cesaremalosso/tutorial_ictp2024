@@ -1,0 +1,47 @@
+Loading git/2.42.0
+  Loading requirement: nghttp2/1.57.0-wcc3jen zlib-ng/2.1.4-6htiapk curl/8.4.0
+    libmd/1.0.4-wja3f5q libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw
+    bzip2/1.0.8-gp5wcz5 libiconv/1.17-d7yvx2s xz/5.4.1-hubmwr5
+    libxml2/2.10.3-5eeeokp ncurses/6.4-asx3jea pigz/2.7-bopr5vp
+    zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libunistring/1.1-rmbdvrt libidn2/2.3.4-yyaeem5 krb5/1.20.1-oa3t6lk
+    libedit/3.1-20210216-wpxbb7e libxcrypt/4.4.35-ss2rzin openssh/9.5p1-lkluopp
+    pcre2/10.42-mys6gxx berkeley-db/18.1.40-vyyao2c readline/8.2-nyw6mp6
+    gdbm/1.23-fs6otck perl/5.38.0--gcc--8.5.0
+/leonardo_scratch/large/userexternal/cmalosso/tutorial/water/train/test
+2024-04-19 10:24:46.039515: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-04-19 10:24:46.757589: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-04-19 10:24:48.780958: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /leonardo/home/userexternal/cmalosso/deepmd/venv_v2.2.3/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:root:To get the best performance, it is recommended to adjust the number of threads by setting the environment variables OMP_NUM_THREADS, TF_INTRA_OP_PARALLELISM_THREADS, and TF_INTER_OP_PARALLELISM_THREADS. See https://deepmd.rtfd.io/parallelism/ for more information.
+2024-04-19 10:24:54.418670: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 62747 MB memory:  -> device: 0, name: NVIDIA A100-SXM-64GB, pci bus id: 0000:1d:00.0, compute capability: 8.0
+2024-04-19 10:24:54.443920: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:375] MLIR V1 optimization pass is not enabled
+2024-04-19 10:24:54.733228: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 62747 MB memory:  -> device: 0, name: NVIDIA A100-SXM-64GB, pci bus id: 0000:1d:00.0, compute capability: 8.0
+WARNING:tensorflow:From /leonardo/home/userexternal/cmalosso/deepmd/venv_v2.2.3/lib/python3.10/site-packages/deepmd/utils/batch_size.py:62: is_gpu_available (from tensorflow.python.framework.test_util) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.config.list_physical_devices('GPU')` instead.
+WARNING:tensorflow:From /leonardo/home/userexternal/cmalosso/deepmd/venv_v2.2.3/lib/python3.10/site-packages/deepmd/utils/batch_size.py:62: is_gpu_available (from tensorflow.python.framework.test_util) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.config.list_physical_devices('GPU')` instead.
+2024-04-19 10:24:54.755272: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Created device /device:GPU:0 with 62747 MB memory:  -> device: 0, name: NVIDIA A100-SXM-64GB, pci bus id: 0000:1d:00.0, compute capability: 8.0
+DEEPMD INFO    # ---------------output of dp test--------------- 
+DEEPMD INFO    # testing system : ../../data/data_3
+DEEPMD INFO    Adjust batch size from 1024 to 2048
+DEEPMD INFO    Adjust batch size from 2048 to 4096
+DEEPMD INFO    Adjust batch size from 4096 to 8192
+DEEPMD INFO    Adjust batch size from 8192 to 16384
+DEEPMD INFO    # number of test data : 80 
+DEEPMD INFO    Energy MAE         : 5.619416e-02 eV
+DEEPMD INFO    Energy RMSE        : 7.111555e-02 eV
+DEEPMD INFO    Energy MAE/Natoms  : 2.926779e-04 eV
+DEEPMD INFO    Energy RMSE/Natoms : 3.703935e-04 eV
+DEEPMD INFO    Force  MAE         : 2.977409e-02 eV/A
+DEEPMD INFO    Force  RMSE        : 3.855097e-02 eV/A
+DEEPMD INFO    Virial MAE         : 3.993215e+00 eV
+DEEPMD INFO    Virial RMSE        : 5.216717e+00 eV
+DEEPMD INFO    Virial MAE/Natoms  : 2.079799e-02 eV
+DEEPMD INFO    Virial RMSE/Natoms : 2.717040e-02 eV
+DEEPMD INFO    # ----------------------------------------------- 

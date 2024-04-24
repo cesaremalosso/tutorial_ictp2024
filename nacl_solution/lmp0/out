@@ -1,0 +1,99 @@
+LAMMPS (2 Aug 2023)
+Reading data file ...
+  orthogonal box = (0 0 0) to (12.097072 12.097072 12.097072)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  188 atoms
+  read_data CPU = 0.037 seconds
+Summary of lammps deepmd module ...
+  >>> Info of deepmd-kit:
+  installed to:       /leonardo/home/userexternal/cmalosso/deepmd/deepmd_root
+  source:             v2.2.3
+  source branch:       master
+  source commit:      53a1078c
+  source commit at:   2023-08-08 11:52:54 +0800
+  surpport model ver.:1.1 
+  build variant:      cuda
+  build with tf inc:  /leonardo/home/userexternal/cmalosso/deepmd/venv_v2.2.3/lib/python3.10/site-packages/tensorflow/include;/leonardo/home/userexternal/cmalosso/deepmd/venv_v2.2.3/lib/python3.10/site-packages/tensorflow/include
+  build with tf lib:  /leonardo/home/userexternal/cmalosso/deepmd/venv_v2.2.3/lib/python3.10/site-packages/tensorflow/libtensorflow_cc.so.2
+  set tf intra_op_parallelism_threads: 0
+  set tf inter_op_parallelism_threads: 0
+  >>> Info of lammps module:
+  use deepmd-kit at:  /leonardo/home/userexternal/cmalosso/deepmd/deepmd_root
+  source:             v2.2.3
+  source branch:      master
+  source commit:      53a1078c
+  source commit at:   2023-08-08 11:52:54 +0800
+  build float prec:   double
+  build with tf inc:  /leonardo/home/userexternal/cmalosso/deepmd/venv_v2.2.3/lib/python3.10/site-packages/tensorflow/include;/leonardo/home/userexternal/cmalosso/deepmd/venv_v2.2.3/lib/python3.10/site-packages/tensorflow/include
+  build with tf lib:  /leonardo/home/userexternal/cmalosso/deepmd/venv_v2.2.3/lib/python3.10/site-packages/tensorflow/libtensorflow_cc.so.2
+INVALID_ARGUMENT: Tensor spin_attr/ntypes_spin:0, specified in either feed_devices or fetch_devices was not found in the Graph
+INVALID_ARGUMENT: Tensor spin_attr/ntypes_spin:0, specified in either feed_devices or fetch_devices was not found in the Graph
+  >>> Info of model(s):
+  using   4 model(s): ../graph_000.pb ../graph_001.pb ../graph_002.pb ../graph_003.pb 
+  rcut in model:      6
+  ntypes in model:    4
+  using compute id:        
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Your simulation uses code contributions which should be cited:
+- USER-DEEPMD package:
+The log file lists these citations in BibTeX format.
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Generated 0 of 6 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 10 steps, delay = 0 steps, check = no
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 8
+  ghost atom cutoff = 8
+  binsize = 4, bins = 4 4 4
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair deepmd, perpetual
+      attributes: full, newton on
+      pair build: full/bin/atomonly
+      stencil: full/bin/3d
+      bin: standard
+Setting up Verlet run ...
+  Unit style    : metal
+  Current step  : 0
+  Time step     : 0.0002
+Per MPI rank memory allocation (min/avg/max) = 2.753 | 2.753 | 2.753 Mbytes
+   Step          Time          KinEng         PotEng         TotEng          Temp          Press         Density         Volume    
+         0   0              7.9766435     -30554.94      -30546.963      330           -821.9271       1.1025038      1770.2751    
+    500000   100            7.9019314     -30553.384     -30545.482      326.9091       1230.4965      1.0041994      1943.5731    
+Loop time of 2586.33 on 1 procs for 500000 steps with 188 atoms
+
+Performance: 3.341 ns/day, 7.184 hours/ns, 193.324 timesteps/s, 36.345 katom-step/s
+97.1% CPU use with 1 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2531       | 2531       | 2531       |   0.0 | 97.86
+Neigh   | 42.597     | 42.597     | 42.597     |   0.0 |  1.65
+Comm    | 4.426      | 4.426      | 4.426      |   0.0 |  0.17
+Output  | 3.939e-05  | 3.939e-05  | 3.939e-05  |   0.0 |  0.00
+Modify  | 7.5756     | 7.5756     | 7.5756     |   0.0 |  0.29
+Other   |            | 0.7194     |            |       |  0.03
+
+Nlocal:            188 ave         188 max         188 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           2043 ave        2043 max        2043 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:        38804 ave       38804 max       38804 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 38804
+Ave neighs/atom = 206.40426
+Neighbor list builds = 50000
+Dangerous builds not checked
+System init for write_restart ...
+Generated 0 of 6 mixed pair_coeff terms from geometric mixing rule
+System init for write_data ...
+Generated 0 of 6 mixed pair_coeff terms from geometric mixing rule
+Total wall time: 0:43:14

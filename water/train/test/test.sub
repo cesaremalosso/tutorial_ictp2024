@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=494000
+#SBATCH --gres=gpu:1
+#SBATCH --time=1:00:00
+#SBATCH --job-name=train
+#SBATCH --account=Sis24_baroni
+#SBATCH --partition=boost_usr_prod
+#SBATCH --mail-user=cesare.notimportant@gmail.com
+#SBATCH --mail-type=ALL
+
+source /leonardo/home/userexternal/cmalosso/deepmd/how2install/moduli_train.sh
+
+cd ${SLURM_SUBMIT_DIR}
+echo $SLURM_SUBMIT_DIR
+
+dp test -m ../frozen_model.pb -s ../../data/data_3 -d test
